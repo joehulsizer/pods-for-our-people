@@ -39,3 +39,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# Force rebuild Tue Jul  1 05:27:57 UTC 2025
