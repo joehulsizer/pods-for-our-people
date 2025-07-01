@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 35 25% 97%;
+    --foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    --primary: 25 85% 60%;
+    --primary-foreground: 60 9.1% 97.8%;
+    --secondary: 45 20% 88%;
+    --secondary-foreground: 24 9.8% 10%;
+    --muted: 40 15% 92%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --accent: 50 60% 85%;
+    --accent-foreground: 24 9.8% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 35 15% 85%;
+    --input: 35 15% 85%;
+    --ring: 25 85% 60%;
+    --radius: 0.75rem;
+    --chart-1: 25 85% 60%;
+    --chart-2: 45 80% 65%;
+    --chart-3: 35 75% 55%;
+    --chart-4: 50 70% 70%;
+    --chart-5: 40 65% 58%;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 35 25% 97%;
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 35 25% 97%;
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 35 25% 97%;
+    --primary: 25 85% 60%;
+    --primary-foreground: 20 14.3% 4.1%;
+    --secondary: 25 15% 12%;
+    --secondary-foreground: 35 25% 97%;
+    --muted: 25 15% 12%;
+    --muted-foreground: 35 15% 65%;
+    --accent: 25 15% 12%;
+    --accent-foreground: 35 25% 97%;
+    --destructive: 0 72.2% 50.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 25 15% 12%;
+    --input: 25 15% 12%;
+    --ring: 25 85% 60%;
+    --chart-1: 25 85% 60%;
+    --chart-2: 45 80% 65%;
+    --chart-3: 35 75% 55%;
+    --chart-4: 50 70% 70%;
+    --chart-5: 40 65% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins;
+  }
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+}
