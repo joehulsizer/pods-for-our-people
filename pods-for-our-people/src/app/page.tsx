@@ -267,7 +267,7 @@ export default function HomePage() {
             <Link href="/resources">
               <Button variant="outline" size="lg">
                 <BookOpen className="h-5 w-5 mr-2" />
-                Learn Best Practices
+                Learn Best Practicators
               </Button>
             </Link>
           </div>
