@@ -27,11 +27,13 @@ import {
   Radio
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useNotifications } from "@/components/NotificationSystem";
 
 export default function CommunityPage() {
   const [activeTab, setActiveTab] = useState("discussions");
   const [newPostContent, setNewPostContent] = useState("");
   const { toast } = useToast();
+  const { addNotification } = useNotifications();
 
   const discussions = [
     {
@@ -98,7 +100,9 @@ export default function CommunityPage() {
       time: "3:00 PM EST",
       host: "Community Team",
       attendees: 23,
-      type: "meetup"
+      type: "meetup",
+      joinUrl: "https://example.com/events/1/join",
+      calendarUrl: "https://example.com/events/1/calendar.ics"
     },
     {
       id: 2,
@@ -108,7 +112,9 @@ export default function CommunityPage() {
       time: "2:00 PM EST",
       host: "Sarah Johnson, CEO",
       attendees: 89,
-      type: "qa"
+      type: "qa",
+      joinUrl: "https://example.com/events/2/join",
+      calendarUrl: "https://example.com/events/2/calendar.ics"
     },
     {
       id: 3,
@@ -118,7 +124,9 @@ export default function CommunityPage() {
       time: "1:00 PM EST",
       host: "Emma Rodriguez",
       attendees: 12,
-      type: "workshop"
+      type: "workshop",
+      joinUrl: "https://example.com/events/3/join",
+      calendarUrl: "https://example.com/events/3/calendar.ics"
     }
   ];
 
@@ -305,8 +313,24 @@ export default function CommunityPage() {
                               <p className="text-sm mt-1">Hosted by <strong>{event.host}</strong></p>
                             </div>
                             <div className="flex flex-col gap-2">
-                              <Button size="sm">Join Event</Button>
-                              <Button size="sm" variant="outline">Remind Me</Button>
+                              <Button size="sm" onClick={() => window.open(event.joinUrl)}>
+                                Join Event
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={() => {
+                                  window.open(event.calendarUrl);
+                                  addNotification({
+                                    type: "reminder",
+                                    title: event.title,
+                                    message: `Reminder set for ${event.title}`,
+                                    action_url: event.joinUrl,
+                                  });
+                                }}
+                              >
+                                Remind Me
+                              </Button>
                             </div>
                           </div>
                         </div>
